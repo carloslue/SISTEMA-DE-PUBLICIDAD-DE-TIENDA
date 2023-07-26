@@ -18,7 +18,7 @@
 
                              <div class="float-right">
                                 <a href="{{ route('productos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('agregar nuevo registro') }}
                                 </a>
                               </div>
                         </div>
@@ -34,14 +34,13 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-                                        
+                                        <th>No</th>              
 										<th>Imagen</th>
 										<th>Nombre</th>
 										<th>Descripcion</th>
 										<th>Precio</th>
-										<th>Categoriaid</th>
-										<th>Estadopromocionid</th>
+										<th>Categoria de producto</th>
+										<th>Estado de promocion</th>
 										<th>Precio Promocion</th>
 
                                         <th></th>
@@ -51,35 +50,36 @@
                                     @foreach ($productos as $producto)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-											<td>
-                                            <img src="{{asset('public/imagenestienda/' . $producto->imagen)}}"
-                                            alt="{{ $producto->imagen }}" height="100px" width="100px">
+											
+                                            <td>
+                                            <img src="{{ asset('imagenestienda/'. $producto->imagen) }}"
+                                            alt=" {{ $producto->imagen }}" height="100px" width="100px">     
                                             </td>
-                                            <td>{{ $producto->imagen }}</td>
 											<td>{{ $producto->nombre }}</td>
 											<td>{{ $producto->descripcion }}</td>
 											<td>{{ $producto->precio }}</td>
-											<td>{{ $producto->categoriaid }}</td>
-											<td>{{ $producto->estadopromocionid }}</td>
+											<td>{{ $producto->descripcion_categoria }}</td>
+											<td>{{ $producto->estado }}</td>
 											<td>{{ $producto->Precio_promocion }}</td>
 
                                             <td>
                                                 <form action="{{ route('productos.destroy',$producto->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('productos.show',$producto->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('productos.edit',$producto->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('productos.show',$producto->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('productos.edit',$producto->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
                                                 </form>
                                             </td>
                                         </tr>
                                     @endforeach
+                                    
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
+                           
+                            
                 </div>
-                {!! $productos->links() !!}
+          
             </div>
         </div>
     </div>
