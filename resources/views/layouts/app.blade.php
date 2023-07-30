@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navegacion navbar navbar-expand-md navbar-light  shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     EL SALVADOR
@@ -30,15 +30,15 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class=" collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
 
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
+                    <ul class=" navbar-nav ms-auto">
+                        <!--Links autenticados -->
                         @auth
                         <a class="nav-link" href="{{ URL::to('categorias') }}">{{ __('CATEGORIAS') }}</a>@endauth
                         @auth
@@ -86,5 +86,11 @@
             @yield('content')
         </main>
     </div>
+
 </body>
 </html>
+<style>
+    .navegacion{
+        background-color: #03346D;
+    }
+</style>
