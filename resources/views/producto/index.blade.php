@@ -31,19 +31,18 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover">
-                                <thead class="thead">
+                            <table class="table table-striped table-hover table-bordered border-primary">
+                                <thead class="thead table-dark">
                                     <tr>
                                         <th>No</th>              
-										<th>Imagen</th>
-										<th>Nombre</th>
-										<th>Descripcion</th>
-										<th>Precio</th>
-										<th>Categoria de producto</th>
-										<th>Estado de promocion</th>
-										<th>Precio Promocion</th>
-
-                                        <th></th>
+										<th>IMAGEN</th>
+										<th>NOMBRE</th>
+										<th>DESCRIPCION</th>
+										<th>PRECIO</th>
+										<th>CATEGORIA DE PRODUCTO</th>
+										<th>ESTADO DE PROMOCION</th>
+										<th>PRECIO DE PROMOCION</th>
+                                        <th>ACCIONES</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -57,7 +56,7 @@
                                             </td>
 											<td>{{ $producto->nombre }}</td>
 											<td>{{ $producto->descripcion }}</td>
-											<td>{{ $producto->precio }}</td>
+											<td>${{ $producto->precio }}.00</td>
 											<td>{{ $producto->descripcion_categoria }}</td>
 											<td>{{ $producto->estado }}</td>
 											<td>{{ $producto->Precio_promocion }}</td>

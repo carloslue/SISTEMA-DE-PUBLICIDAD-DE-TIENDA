@@ -4,11 +4,18 @@
         <div class="form-group">
             {{ Form::label('imagen') }}
             <br>
-            <label for="archivo" style="cursor: pointer;">
-            <img src="../../imagenes/subirimg.png" alt="img" height="3%" width="3%"> Selecciona una imagen   
+            <img src="{{ asset('imagenestienda/'. $producto->imagen) }}" alt=" {{ $producto->imagen }}" height="100px" width="100px">     
+            <br>
+            <br>
+             <!-- Label con el icono -->
+        <label for="archivo" style="cursor: pointer;">
+        <img src="../../imagenes/subirimg.png" alt="img" height="3%" width="3%"> Selecciona una imagen   
         </label>
         <!-- Input oculto para subir archivo -->
         <input type="file" id="archivo" name="imagen" accept="image/*" style="display: none;">
+        <br>
+        <br>
+
         </div>
         <div class="form-group">
             {{ Form::label('nombre') }}
@@ -29,7 +36,12 @@
             {{ Form::label('Categoria') }}
             <select name="categoriaid" id="" class="form-control">
                 @foreach ($categorias as $categoria)
-                    <option value="{{ $categoria->id }}">{{ $categoria->descripcion_categoria }}</option>
+
+                @if($categoria->id == $producto->categoriaid)
+                <option  value="{{$categoria->id }}" selected>{{ $categoria->descripcion_categoria }}</option>
+                @else
+                <option  value="{{$categoria->id }}">{{ $categoria->descripcion_categoria }}</option>
+                @endif 
                 @endforeach
             </select>
         </div>
@@ -37,7 +49,11 @@
             {{ Form::label('Estado de Promociones') }}
             <select name="estadopromocionid" id="" class="form-control">
                 @foreach ($estadopromociones as $estadopromocione)
-                    <option value="{{ $estadopromocione->id }}">{{ $estadopromocione->estado }}</option>
+                @if($estadopromocione->id == $producto->estadopromocionid)
+                <option  value="{{ $estadopromocione->id }}" selected>{{ $estadopromocione->estado }}</option>
+                @else
+                <option  value="{{ $estadopromocione->id }}">{{ $estadopromocione->estado }}</option>
+                @endif 
                 @endforeach
             </select>
         </div>
@@ -49,6 +65,6 @@
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
+        <button type="submit" class="btn btn-primary">{{ __('Actualizar informacion') }}</button>
     </div>
 </div>

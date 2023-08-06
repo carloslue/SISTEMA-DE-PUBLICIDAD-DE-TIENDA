@@ -9,17 +9,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
-/**
- * Class ProductoController
- * @package App\Http\Controllers
- */
+
 class ProductoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function index()
     {
        // $productos = Producto::paginate();
@@ -64,12 +57,7 @@ class ProductoController extends Controller
             ->with('success', 'Producto created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
+ //METODO VER
     public function show($id)
     {
         $producto = Producto::find($id);
@@ -77,41 +65,39 @@ class ProductoController extends Controller
         return view('producto.show', compact('producto'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
+    //METODO DE EDITAR
     public function edit($id)
-    {
+    {   $categorias=categoria::all();
+        $estadopromociones=estadopromocione::all();
         $producto = Producto::find($id);
 
-        return view('producto.edit', compact('producto'));
+        return view('producto.edit', compact('producto','categorias','estadopromociones'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  Producto $producto
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Producto $producto)
+   //METODO DE ACTUALIZAR
+    public function update(Request $request,$id)
     {
         request()->validate(Producto::$rules);
-
-        $producto->update($request->all());
+        $producto = Producto::find($id);
+        if ($request->hasFile('imagen')) {
+            $file = $request->imagen;
+            $file->move(public_path() . '/imagenestienda', 
+            $file->getClientOriginalName());
+            $producto->imagen = $file->getClientOriginalName();
+        }
+        $producto->nombre = request('nombre');
+        $producto->descripcion = request('descripcion');
+        $producto->precio = request('precio');
+        $producto->categoriaid = request('categoriaid');
+        $producto->estadopromocionid = request('estadopromocionid');
+        $producto->Precio_promocion = request('Precio_promocion');
+        $producto->save();
 
         return redirect()->route('productos.index')
-            ->with('success', 'Producto updated successfully');
+            ->with('success', 'Producto actualizado exitosamente');
     }
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
-     */
+  
     public function destroy($id)
     {
         $producto = Producto::find($id)->delete();
