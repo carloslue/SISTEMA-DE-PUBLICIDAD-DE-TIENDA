@@ -28,6 +28,6 @@ class ProductoClientController extends Controller
     {
         $producto = Producto::find($id);
 
-        return view('producto.show', compact('producto'));
+        return view('usuariop.productosp.show', compact('producto'));
     }
 }

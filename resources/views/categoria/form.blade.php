@@ -1,6 +1,6 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-        
+
         <div class="form-group">
             {{ Form::label('descripcion_categoria') }}
             {{ Form::text('descripcion_categoria', $categoria->descripcion_categoria, ['class' => 'form-control' . ($errors->has('descripcion_categoria') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion Categoria']) }}

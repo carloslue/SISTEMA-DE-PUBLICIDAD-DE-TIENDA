@@ -1,14 +1,16 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-        
+
         <div class="form-group">
             {{ Form::label('imagen') }}
             <br>
+            Selecciona una
+            imagen
             <label for="archivo" style="cursor: pointer;">
-            <img src="../../imagenes/subirimg.png" alt="img" height="3%" width="3%"> Selecciona una imagen   
-        </label>
-        <!-- Input oculto para subir archivo -->
-        <input type="file" id="archivo" name="imagen" accept="image/*" style="display: none;">
+                <img src="../../imagenes/subirimagen.jpg" alt="img" height="15%" width="15%">
+            </label>
+            <!-- Input oculto para subir archivo -->
+            <input type="file" id="archivo" name="imagen" accept="image/*" style="display: none;">
         </div>
         <div class="form-group">
             {{ Form::label('nombre') }}
@@ -49,6 +51,6 @@
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
+        <button type="submit" class="btn btn-primary">{{ __('Registrar Producto') }}</button>
     </div>
 </div>

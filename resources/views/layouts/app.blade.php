@@ -26,7 +26,7 @@
     <div id="app">
         <nav class="navegacion navbar navbar-expand-md navbar-light  shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navegacion navbar-brand" href="{{ url('/') }}">
                     EL SALVADOR
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -51,17 +51,18 @@
                         @auth
                             <a class="nav-link"
                             href="{{ URL::to('estadopromociones') }}">{{ __('ESTADOS DE PROMOCIONES') }}</a>@endauth
-                            
+
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="navegacion nav-link" href="{{ route('login') }}">{{ __('INGRESAR') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="navegacion nav-link"
+                                        href="{{ route('register') }}">{{ __('REGISTRARSE') }}</a>
                                 </li>
                             @endif
                         @else
@@ -93,12 +94,24 @@
             @yield('content')
         </main>
     </div>
+    <div class="footer">
+
+        redes sociales
+    </div>
 
 </body>
 
 </html>
 <style>
     .navegacion {
-        background-color: #03346D;
+        background-color: #132D46;
+        color: #01c38e;
+        font-size: 115%;
+    }
+
+    .footer {
+        background-color: #132D46;
+        color: #01c38e;
+
     }
 </style>

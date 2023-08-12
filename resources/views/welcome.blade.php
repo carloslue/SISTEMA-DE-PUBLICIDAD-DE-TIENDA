@@ -43,7 +43,7 @@
         }
 
         a {
-            color: inherit;
+            color: #1a202c;
             text-decoration: inherit
         }
 
@@ -403,10 +403,6 @@
 
 
         }
-
-        .panel {
-            background-color: yellow;
-        }
     </style>
 </head>
 
@@ -431,6 +427,31 @@
         @endif
 
         <h1 class="titulo"><b>BIENVENDIOS A NUESTRA TIENDA MIRA LOS MEJORES PRECIOS </b></h1>
+
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h1>
+                <center>MISION</center>
+            </h1>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis accusamus assumenda reiciendis
+            alias doloribus incidunt magnam deleniti necessitatibus quidem? Obcaecati vero omnis nobis vitae
+            eveniet commodi quia ut, consequuntur dignissimos?
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis accusamus assumenda reiciendis
+            alias doloribus incidunt magnam deleniti necessitatibus quidem? Obcaecati vero omnis nobis vitae
+            eveniet commodi quia ut, consequuntur dignissimos?
+        </div>
+        <div class="col-md-6">
+            <H1>
+                <center>VISION</center>
+            </H1>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis accusamus assumenda reiciendis
+            alias doloribus incidunt magnam deleniti necessitatibus quidem? Obcaecati vero omnis nobis vitae
+            eveniet commodi quia ut, consequuntur dignissimos?
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis accusamus assumenda reiciendis
+            alias doloribus incidunt magnam deleniti necessitatibus quidem? Obcaecati vero omnis nobis vitae
+            eveniet commodi quia ut, consequuntur dignissimos?
+        </div>
     </div>
 
 </body>
