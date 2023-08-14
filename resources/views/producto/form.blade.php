@@ -7,7 +7,7 @@
             Selecciona una
             imagen
             <label for="archivo" style="cursor: pointer;">
-                <img src="../../imagenes/subirimagen.jpg" alt="img" height="15%" width="15%">
+                <img src="../../imagenes/subirimagen.jpg" alt="img" height="50%" width="50%">
             </label>
             <!-- Input oculto para subir archivo -->
             <input type="file" id="archivo" name="imagen" accept="image/*" style="display: none;">

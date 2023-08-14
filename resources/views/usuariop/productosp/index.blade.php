@@ -10,11 +10,30 @@
     </h1>
     <div class="contenedor">
 
+        <center>
+            <div class="tarjeta col-md-3">
+                <form action="{{ route('buscarproductos') }}" method="GET">
+                    <input class="form-control" type="search" name="palabra" placeholder="Buscar productos...">
+                    <button class="btn btn-primary form-control" type="submit">Buscar</button>
+                </form>
+
+                @if ($productos->isEmpty())
+                    <p>No se encontraron resultados.</p>
+                @else
+                    <H6>
+                        <div class="alert alert-primary" role="alert">
+                            {{ $buscar }}
+                        </div>
+                    </H6>
+                @endif
+            </div>
+        </center>
+
         <div class="row">
             @foreach ($productos as $producto)
                 <div class="tarjeta col-md-3">
-                    <img src="{{ asset('imagenestienda/' . $producto->imagen) }}" alt=" {{ $producto->imagen }}" height="35%"
-                        width="100%">
+                    <img src="{{ asset('imagenestienda/' . $producto->imagen) }}" alt=" {{ $producto->imagen }}"
+                        height="35%" width="100%">
                     <p><B>PRODUCTO:</B> {{ $producto->nombre }}</p>
                     <p><B>DESCRIPCION:</B>{{ $producto->descripcion }}</p>
                     <p><B>PRECIO:</B> ${{ $producto->precio }}.00</p>
@@ -22,11 +41,8 @@
                     <p><B>PROMOCION:</B> {{ $producto->estado }}</p>
                     <p><B>PRECIO DE PROMOCION:</B> {{ $producto->Precio_promocion }}</p>
                     <center>
-
                         <a class="boton btn btn-sm" href="{{ route('productosC.show', $producto->id) }}"><i
-                                class="fa fa-fw fa-eye"></i>
-                            {{ __('VER MAS DETALLE') }}</a>
-
+                                class="fa fa-fw fa-eye"></i> {{ __('VER MAS DETALLE') }}</a>
                     </center>
                 </div>
             @endforeach

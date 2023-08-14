@@ -21,3 +21,5 @@ Route::resource('/estadopromociones', EstadopromocioneController::class)->middle
 
 //rutas publicas
 Route::resource('/productosC', ProductoClientController::class);
+//ruta para buscador
+Route::get('/buscar-productos', [ProductoClientController::class, 'index'])->name('buscarproductos');
